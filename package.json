@@ -2,11 +2,11 @@
   "name": "book-crud1",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon app.js ",
-    "dev": "nodemon app.js"
+    "start": "nodemon index.js ",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
