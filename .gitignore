@@ -1,0 +1,18 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Node project files
+package-lock.json
+
+# Optional: Ignore npm-debug.log if you're using npm v5 or higher
+npm-debug.log
+
+# Environment variables
+.env
