@@ -29,7 +29,7 @@ const corsOption = {
 };
 app.use(cors(corsOption));
 
-app.use('/api/user',route);
+app.use('/api',route);
 
 app.get('/', (req, res) => {
     console.log("req=>" , req);
