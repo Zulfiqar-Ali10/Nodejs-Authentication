@@ -1,13 +1,10 @@
 import express from 'express';
-import route from './routes/user-routes.js';
 import cors from 'cors';
 import {connectDb} from './config/config.js';
 import pkg from 'body-parser';
 const { json } = pkg;
 import dotenv from 'dotenv';
-import mongoose from "mongoose";
-
-
+import {signUp , signIn} from './controllers/users.js'
 
 const app = express();
 
@@ -29,15 +26,14 @@ const corsOption = {
 };
 app.use(cors(corsOption));
 
-app.use('/api',route);
 
 app.get('/', (req, res) => {
     console.log("req=>" , req);
     res.send("Hello world");
 })
-// mongoose.connect(process.env.MONGO_URI)
-// .then(()=> console.log("Mongodb Connect"))
-// .catch((err)=> console.log("err", err));
+
+app.post('/signup', signUp)
+app.post('/signin', signIn)
 
 
 const PORT = process.env.PORT || 5000;
