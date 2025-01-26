@@ -8,6 +8,7 @@ import dotenv from 'dotenv';
 import mongoose from "mongoose";
 
 
+
 const app = express();
 
 dotenv.config(); 
@@ -18,7 +19,15 @@ console.log("MONGO_URI", process.env.MONGO_URI);
 
 
 connectDb();
-app.use(cors()); // Allow all origins
+
+ // Allow all origins
+const corsOption = {
+    origin: 'http://localhost:5173',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    CredentialS: true,
+    optionSuccessStatus: 204
+};
+app.use(cors(corsOption));
 
 app.use('/api/user',route);
 
