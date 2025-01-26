@@ -5,6 +5,7 @@ import {connectDb} from './config/config.js';
 import pkg from 'body-parser';
 const { json } = pkg;
 import dotenv from 'dotenv';
+import mongoose from "mongoose";
 
 
 const app = express();
@@ -21,8 +22,16 @@ app.use(cors()); // Allow all origins
 
 app.use('/api/user',route);
 
+app.get('/', (req, res) => {
+    console.log("req=>" , req);
+    res.send("Hello world");
+})
+mongoose.connect(process.env.MONGO_URI)
+.then(()=> console.log("Mongodb Connect"))
+.catch((err)=> console.log("err", err));
 
-const PORT = process.env.PORT || 5001;
+
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
